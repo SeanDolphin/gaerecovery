@@ -1,11 +1,6 @@
-gaerecovery
-===========
-
-GAEReocery Middleware
-
+gaerecovery 
 [![GoDoc](https://godoc.org/github.com/SeanDolphin/gaerecovery?status.png)](http://godoc.org/github.com/SeanDolphin/gaerecovery)
-
-# GAERecovery
+===========
 
 Google Appengine Recovery middleware for [Negroni](https://github.com/codegangsta/negroni).
 
