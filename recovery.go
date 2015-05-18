@@ -4,7 +4,8 @@ import (
 	"net/http"
 	"runtime/debug"
 
-	"appengine"
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/log"
 )
 
 type recovery struct {
@@ -17,21 +18,19 @@ func Recovery() *recovery {
 	}
 }
 
-func (rec *recovery) ServeHTTP(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+func (rec *recovery) ServeHTTP(writer http.ResponseWriter, req *http.Request, next http.HandlerFunc) {
 	defer func() {
 		if err := recover(); err != nil {
-			rw.WriteHeader(http.StatusInternalServerError)
+			writer.WriteHeader(http.StatusInternalServerError)
 
-			context := appengine.NewContext(r)
-
-			context.Criticalf("%s", err)
-
+			ctx := appengine.NewContext(req)
+			log.Criticalf(ctx, "%s", err.Error())
 			if rec.PrintStack {
-				stack := debug.Stack()
-				context.Debugf("%s", stack)
+				status := debug.Stack()
+				log.Debugf(ctx, "%s", stack)
 			}
 		}
 	}()
 
-	next(rw, r)
+	next(writer, req)
 }
