@@ -26,8 +26,7 @@ func (rec *recovery) ServeHTTP(writer http.ResponseWriter, req *http.Request, ne
 			ctx := appengine.NewContext(req)
 			log.Criticalf(ctx, "%s", err.Error())
 			if rec.PrintStack {
-				status := debug.Stack()
-				log.Debugf(ctx, "%s", stack)
+				log.Debugf(ctx, "%s", debug.Stack())
 			}
 		}
 	}()
