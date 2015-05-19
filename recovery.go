@@ -24,7 +24,7 @@ func (rec *recovery) ServeHTTP(writer http.ResponseWriter, req *http.Request, ne
 			writer.WriteHeader(http.StatusInternalServerError)
 
 			ctx := appengine.NewContext(req)
-			log.Criticalf(ctx, "%s", err.Error())
+			log.Criticalf(ctx, "%s", err)
 			if rec.PrintStack {
 				log.Debugf(ctx, "%s", debug.Stack())
 			}
