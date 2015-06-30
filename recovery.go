@@ -1,12 +1,6 @@
 package gaerecovery
 
-import (
-	"net/http"
-	"runtime/debug"
-
-	"google.golang.org/appengine"
-	"google.golang.org/appengine/log"
-)
+import "net/http"
 
 type recovery struct {
 	PrintStack bool
@@ -22,14 +16,11 @@ func (rec *recovery) ServeHTTP(writer http.ResponseWriter, req *http.Request, ne
 	defer func() {
 		if err := recover(); err != nil {
 			writer.WriteHeader(http.StatusInternalServerError)
-
-			ctx := appengine.NewContext(req)
-			log.Criticalf(ctx, "%s", err)
-			if rec.PrintStack {
-				log.Debugf(ctx, "%s", debug.Stack())
-			}
+			logger(req, err, rec.PrintStack)
 		}
 	}()
 
 	next(writer, req)
 }
+
+var logger = func(req *http.Request, err interface{}, printstack bool) {}

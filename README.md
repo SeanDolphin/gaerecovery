@@ -6,6 +6,14 @@ Google Appengine Recovery middleware for [Negroni](https://github.com/codegangst
 Mostly a copy of the Negroni Recovery middleware with small changes to make it function
 log into GAE correctly. 
 
+## Installation
+
+The import path for the package is *gopkg.in/SeanDolphin/gaerecovery.v1*.
+
+To install it, run:
+
+    go get gopkg.in/SeanDolphin/gaerecovery.v1
+    
 ## Usage
 
 ~~~ go
@@ -16,7 +24,7 @@ import (
     "net/http"
 
     "github.com/codegangsta/negroni"
-    "github.com/SeanDolphin/gaerecovery"
+    "gopkg.in/SeanDolphin/gaerecovery.v1"
 )
 
 func main() {
