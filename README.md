@@ -1,5 +1,9 @@
 #GAERecovery 
-[![GoDoc](https://godoc.org/github.com/SeanDolphin/gaerecovery?status.png)](http://godoc.org/github.com/SeanDolphin/gaerecovery)
+
+[![GoDoc](https://godoc.org/gopkg.in/SeanDolphin/gaerecovery.v1?status.png)](http://godoc.org/gopkg.in/SeanDolphin/gaerecovery.v1)  
+[![Build Status](https://travis-ci.org/SeanDolphin/gaerecovery.svg?branch=master)](https://travis-ci.org/SeanDolphin/gaerecovery)  
+[![Coverage Status](https://coveralls.io/repos/SeanDolphin/gaerecovery/badge.svg?branch=master)](https://coveralls.io/r/SeanDolphin/gaerecovery?branch=master)  
+[![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 Google Appengine Recovery middleware for [Negroni](https://github.com/codegangsta/negroni).
 
